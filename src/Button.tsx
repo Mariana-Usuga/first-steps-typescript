@@ -1,6 +1,6 @@
-import React,{ SyntheticEvent, FormEvent, ChangeEvent} from "react"
+import React,{ SyntheticEvent, FormEvent, ChangeEvent, FC} from "react"
 
-const Button = () => {
+const Button: FC = () => {
   const type= "submit"
 
 const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
@@ -9,7 +9,7 @@ const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
 }
 
 const handleClick = (e: SyntheticEvent) => {
-
+  console.log(e)
 }
 
 const handleChange = (e:ChangeEvent<HTMLInputElement>) => {

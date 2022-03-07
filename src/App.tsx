@@ -11,6 +11,9 @@ function App() {
         <Button />
         <Card title="mariana" description='description' numVotes={20}/>
         <Card title="mariana2" description='description2'/>
+        <Card title="mariana2" description='description2'>
+          Este es el hijo
+        </Card>
       </header>
     </div>
   );
