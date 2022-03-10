@@ -2,6 +2,7 @@ import React, { SyntheticEvent, FormEvent, ChangeEvent, FC, useState } from 'rea
 
 const Button: FC = () => {
   const [value, setValue] = useState(0);
+  const [user, setUser] = useState()
 
   const increment = () => setValue((prev) => prev + 1);
   const decrement = () => setValue((prev) => prev + 1);
