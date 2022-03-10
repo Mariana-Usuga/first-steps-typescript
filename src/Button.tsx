@@ -1,32 +1,34 @@
-import React,{ SyntheticEvent, FormEvent, ChangeEvent, FC} from "react"
+import React, { SyntheticEvent, FormEvent, ChangeEvent, FC, useState } from 'react';
 
 const Button: FC = () => {
-  const type= "submit"
+  const [value, setValue] = useState(0);
 
-const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
-  e.preventDefault()
-  console.log(e)
-}
+  const increment = () => setValue((prev) => prev + 1);
+  const decrement = () => setValue((prev) => prev + 1);
 
-const handleClick = (e: SyntheticEvent) => {
-  console.log(e)
-}
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(e);
+  };
+  const handleClick = (e: SyntheticEvent) => {
+    console.log(e);
+  };
 
-const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-console.log(e)
-}
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
+  };
 
-  return(
+  return (
     <>
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" onChange={handleChange} />
-      <button type={type}>
-        submit
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="title" onChange={handleChange} />
+        <button type="button">
+          submit
         </button>
       </form>
-      <div onClick={handleClick}>click me</div>
+      <div onClick={() => {}} onKeyDown={handleClick} role="button" tabIndex={0}>click me</div>
     </>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
