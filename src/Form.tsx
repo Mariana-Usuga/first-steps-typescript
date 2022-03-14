@@ -1,12 +1,6 @@
-import React, { SyntheticEvent, FormEvent, ChangeEvent, FC, useState } from 'react';
+import React, { SyntheticEvent, FormEvent, ChangeEvent, FC } from 'react';
 
-const Button: FC = () => {
-  const [value, setValue] = useState(0);
-  const [user, setUser] = useState()
-
-  const increment = () => setValue((prev) => prev + 1);
-  const decrement = () => setValue((prev) => prev + 1);
-
+const Form: FC = () => {
   const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
@@ -32,4 +26,4 @@ const Button: FC = () => {
   );
 };
 
-export default Button;
+export default Form;
