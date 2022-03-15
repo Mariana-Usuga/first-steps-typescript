@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import { useReducer } from 'react';
 
 const INITIAL_STATE = {
@@ -43,18 +42,26 @@ const reducer = (state: State, action: Action) => {
       };
     }
     case ACTION_TYPES.logout: {
-      return {
-        ...state,
-        isLogged: true,
-      };
+      return INITIAL_STATE;
     }
+    default:
+      return state;
   }
 };
 
 const useUser = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+
+  const loginHandler = (email:string) => {
+    dispatch({ type: ACTION_TYPES.login, payload: email });
+  };
+
+  const logoutHandler = () => {
+    dispatch({ type: ACTION_TYPES.logout });
+  };
+
   return {
-    user,
+    state,
     loginHandler,
     logoutHandler,
   };
