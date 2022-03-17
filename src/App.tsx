@@ -14,12 +14,12 @@ const App = () => {
     setTasks([...tasks, task]);
   };
 
-  const deleteTask = (task: Task) => {
-    setTasks(tasks.filter((t) => t.id !== task.id));
+  const deleteTask = ({ id }: Task) => {
+    setTasks(tasks.filter((t) => t.id !== id));
   };
 
-  const updateTask = (task: Task) => {
-    setTasks(tasks.map((t) => (t.id === task.id ? { ...t, completed: !t.completed } : t)));
+  const updateTask = ({ id }: Task) => {
+    setTasks(tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
   };
 
   return (
@@ -33,25 +33,9 @@ const App = () => {
         </div>
       </nav>
       <main className="container p4">
-        {/* <div className="row"> */}
-        {/* <div className="col-md-4"> */}
         <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} />
-
         <TaskForm addANewTask={addANewTask} />
-        {/* </div> */}
-        {/* <div className="col-md-8"> */}
-        {/* <div className="row"> */}
-        {/* </div> */}
-        {/* </div> */}
-        {/* </div> */}
       </main>
-      <header className="App-header">
-
-        {/* <Card title="mariana" description="description" numVotes={20} /> */}
-        {/* <Card title="mariana2" description="description2"> */}
-        {/* Este es el hijo */}
-        {/* </Card> */}
-      </header>
     </div>
   );
 };

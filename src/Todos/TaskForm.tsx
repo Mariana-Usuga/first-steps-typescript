@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/no-array-index-key */
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState, useRef } from 'react';
 import { Task } from '../interfaces/Task';
 
 interface Props {
@@ -16,6 +16,8 @@ const TaskForm = ({ addANewTask }:Props) => {
     id: 0,
     title: '',
   });
+
+  const inputTitle = useRef<HTMLInputElement>(null);
 
   const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
     setTask({
@@ -29,6 +31,7 @@ const TaskForm = ({ addANewTask }:Props) => {
     e.preventDefault();
     addANewTask(task);
     setTask({ id: 0, title: '' });
+    inputTitle.current?.focus();
   };
 
   return (
@@ -45,6 +48,7 @@ const TaskForm = ({ addANewTask }:Props) => {
                   onChange={handleChange}
                   className="form-control"
                   autoFocus
+                  ref={inputTitle}
                 />
                 <button type="submit" className="btn btn-success mt-2">
                   Save

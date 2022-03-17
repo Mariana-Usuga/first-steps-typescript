@@ -6,18 +6,20 @@ import { Task } from '../interfaces/Task';
 
 interface Props {
 task: Task;
-deleteTask: (task:Task) => void
-updateTask: (task:Task) => void
+deleteTask: ({ id }:Task) => void
+updateTask: ({ id }:Task) => void
 }
 
 const TaskCard = ({ task, deleteTask, updateTask }:Props) => (
   <div className="card card-body mt-2">
     <div className="row">
-      <h4
-        style={{ textDecoration: task.completed ? 'line-through' : '' }}
-      >
-        {task.title}
-      </h4>
+      <div className="col">
+        <h4
+          style={{ textDecoration: task.completed ? 'line-through' : '' }}
+        >
+          {task.title}
+        </h4>
+      </div>
       <div className="col">
         <button
           type="button"
