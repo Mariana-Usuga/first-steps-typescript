@@ -1,17 +1,14 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/no-array-index-key */
 import React, { FormEvent, ChangeEvent, FC, useState } from 'react';
-import { FaCheckSquare, FaRegTimesCircle, FaTrashAlt } from 'react-icons/fa';
+import { Task } from '../interfaces/Task';
 
-interface ITask {
-  newTask: string
-  done: boolean
-}
-
-const Form: FC = () => {
+const TaskForm: FC = () => {
   const [newTask, setNewTask] = useState<string>('');
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +36,7 @@ const Form: FC = () => {
 
   return (
     <>
-      {tasks.map((task: ITask, i:number) => (
+      {/* {tasks.map((task: ITask, i:number) => (
         <div key={i} className="card card-body mt-2">
           <div className="row">
             <div className="col-sm-6">
@@ -65,7 +62,7 @@ const Form: FC = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
       <div className="container p-4">
         <div className="row">
           <div className="col-md-6 offset-md-3">
@@ -95,4 +92,4 @@ const Form: FC = () => {
   );
 };
 
-export default Form;
+export default TaskForm;
