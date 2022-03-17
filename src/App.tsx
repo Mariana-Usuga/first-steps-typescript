@@ -3,9 +3,9 @@
 /* eslint-disable import/no-unresolved */
 import { useState } from 'react';
 import logo from './logo.svg';
-import TaskForm from './Todos/TaskForm';
+import TaskForm from './Tasks/TaskForm';
 import { Task } from './interfaces/Task';
-import TaskList from './Todos/TaskList';
+import TaskList from './Tasks/TaskList';
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
