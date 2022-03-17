@@ -13,20 +13,23 @@ interface Props {
 
 const TaskForm = ({ addANewTask }:Props) => {
   const [task, setTask] = useState({
+    id: 0,
     title: '',
   });
 
   const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    setTask({ ...task, [e.target.name]: e.target.value });
+    setTask({
+      ...task,
+      [e.target.name]: e.target.value,
+      id: Math.floor(Math.random() * (200 - 1)) + 1,
+    });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addANewTask(task);
-    setTask({ title: '' });
+    setTask({ id: 0, title: '' });
   };
-
-  console.log('working');
 
   return (
     <div className="container p-4">
@@ -38,6 +41,7 @@ const TaskForm = ({ addANewTask }:Props) => {
                 <input
                   name="title"
                   type="text"
+                  value={task.title}
                   onChange={handleChange}
                   className="form-control"
                   autoFocus

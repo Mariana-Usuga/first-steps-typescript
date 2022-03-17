@@ -8,14 +8,19 @@ import TaskCard from './TaskCard';
 interface Props {
   tasks: Task[]
   deleteTask: (task:Task) => void
+  updateTask: (task:Task) => void
 }
 
-const TaskList = ({ tasks, deleteTask }:Props) => (
+const TaskList = ({ tasks, deleteTask, updateTask }:Props) => (
   <>
     {tasks.map((task) => (
-      <div className="col-md-4">
-        <TaskCard task={task} deleteTask={() => deleteTask(task)} />
-      </div>
+      // <div className="col-md-4">
+      <TaskCard
+        task={task}
+        deleteTask={() => deleteTask(task)}
+        updateTask={() => updateTask(task)}
+      />
+      // </div>
     ))}
   </>
 );

@@ -2,31 +2,24 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import { useState } from 'react';
-// import TaskForm from './Todos/TaskForm';
 import logo from './logo.svg';
 import TaskForm from './Todos/TaskForm';
 import { Task } from './interfaces/Task';
 import TaskList from './Todos/TaskList';
-// import Card from './Card';
-
-// interface Props {
-//   title: string
-// }
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addANewTask = (task: Task) => {
     setTasks([...tasks, task]);
-    // e.preventDefault();
-    // setTasks([
-    //   ...tasks, { title, completed: false },
-    // ]);
-    // setTitle('');
   };
 
   const deleteTask = (task: Task) => {
     setTasks(tasks.filter((t) => t.id !== task.id));
+  };
+
+  const updateTask = (task: Task) => {
+    setTasks(tasks.map((t) => (t.id === task.id ? { ...t, completed: !t.completed } : t)));
   };
 
   return (
@@ -42,7 +35,7 @@ const App = () => {
       <main className="container p4">
         {/* <div className="row"> */}
         {/* <div className="col-md-4"> */}
-        <TaskList tasks={tasks} deleteTask={deleteTask} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} />
 
         <TaskForm addANewTask={addANewTask} />
         {/* </div> */}
