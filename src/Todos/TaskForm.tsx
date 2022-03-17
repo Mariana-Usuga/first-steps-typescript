@@ -1,94 +1,56 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable react/no-array-index-key */
-import React, { FormEvent, ChangeEvent, FC, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Task } from '../interfaces/Task';
 
-const TaskForm: FC = () => {
-  const [newTask, setNewTask] = useState<string>('');
-  const [tasks, setTasks] = useState<Task[]>([]);
+interface Props {
+  addANewTask: (task: Task) => void
+}
 
-  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setTasks([
-      ...tasks, { newTask, done: false },
-    ]);
-    setNewTask('');
-  };
-  // const handleClick = (e: SyntheticEvent) => {
-  //   console.log(e);
-  // };
-  const updateTask = (i:number) => {
-    setTasks(tasks.map((task, index) => (index === i
-      ? { ...task, done: !task.done } : task)));
-  };
-
-  const deleteTask = (i: number) => {
-    setTasks(tasks.filter((task, index) => index !== i));
-  };
+const TaskForm = ({ addANewTask }:Props) => {
+  const [task, setTask] = useState({
+    title: '',
+  });
 
   const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setNewTask(e.target.value);
+    setTask({ ...task, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addANewTask(task);
+    setTask({ title: '' });
+  };
+
+  console.log('working');
+
   return (
-    <>
-      {/* {tasks.map((task: ITask, i:number) => (
-        <div key={i} className="card card-body mt-2">
-          <div className="row">
-            <div className="col-sm-6">
-              <h4
-                style={{ textDecoration: task.done ? 'line-through' : '' }}
-              >
-                {task.newTask}
-              </h4>
-            </div>
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => updateTask(i)}
-              >
-                {task.done ? <FaCheckSquare /> : <FaRegTimesCircle />}
-              </button>
-            </div>
-            <div className="col">
-              <button type="button" className="btn btn-danger" onClick={() => deleteTask(i)}>
-                <FaTrashAlt />
-              </button>
-            </div>
-          </div>
-        </div>
-      ))} */}
-      <div className="container p-4">
-        <div className="row">
-          <div className="col-md-6 offset-md-3">
-            <div className="card">
-              <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    name="task"
-                    onChange={handleChange}
-                    value={newTask}
-                    className="form-control"
-                    autoFocus
-                  />
-                  <button type="submit" className="btn btn-success mt-2">
-                    Save
-                  </button>
-                </form>
-              </div>
+    <div className="container p-4">
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <div className="card">
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <input
+                  name="title"
+                  type="text"
+                  onChange={handleChange}
+                  className="form-control"
+                  autoFocus
+                />
+                <button type="submit" className="btn btn-success mt-2">
+                  Save
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      {/* <div onClick={() => {}} onKeyDown={handleClick} role="button"
-      tabIndex={0}>click me</div> */}
-    </>
+    </div>
   );
 };
 

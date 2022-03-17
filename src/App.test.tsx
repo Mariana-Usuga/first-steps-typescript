@@ -1,3 +1,7 @@
+/* eslint-disable import/extensions */
+/* eslint-disable no-undef */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
