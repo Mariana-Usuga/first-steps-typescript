@@ -2,10 +2,11 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import { useState } from 'react';
-import logo from './logo.svg';
 import TaskForm from './Tasks/TaskForm';
 import { Task } from './interfaces/Task';
 import TaskList from './Tasks/TaskList';
+import Bank from './Bank/Bank';
+// import NavBar from './NavBar/NavBar';
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -24,18 +25,12 @@ const App = () => {
 
   return (
     <div className="bg-dark" style={{ height: '100vh' }}>
-      <nav className="navbar navbar-dark bg-primary">
-        <div className="container">
-          <a href="" className="navbar-brand">
-            <img src={logo} alt="react-logo" style={{ width: '4rem' }} />
-            Learning TypeScript
-          </a>
-        </div>
-      </nav>
+      {/* <NavBar /> */}
       <main className="container p4">
         <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} />
         <TaskForm addANewTask={addANewTask} />
       </main>
+      <Bank />
     </div>
   );
 };

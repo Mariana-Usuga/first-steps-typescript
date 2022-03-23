@@ -7,6 +7,7 @@ import { Action } from '../../interfaces/Bank';
 const initialState = 0;
 
 const bankReducer = (state: number = initialState, action: Action) => {
+  console.log('action paylos', action.payload);
   switch (action.type) {
     case ActionTypes.DEPOSIT:
       return state + action.payload;

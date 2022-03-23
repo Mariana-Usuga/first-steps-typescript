@@ -3,17 +3,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// eslint-disable-next-line import/order
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import {store} from './state/index'
+import store from './state/index';
+import Layout from './Layout/Layout';
+import App from './App';
 
 import 'bootswatch/dist/lumen/bootstrap.min.css';
+
+const Routing = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="tasks" element={<App />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <Routing />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

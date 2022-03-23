@@ -37,11 +37,11 @@ module.exports = {
       2,
       { caseSensitive: false },
     ],
-    settings: {
-      // 'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
-      'import/parsers': {
-        '@typescript-eslint/parser': ['.ts', '.tsx'],
-      },
-    },
+    // settings: {
+    // 'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    // 'import/parsers': {
+    // '@typescript-eslint/parser': ['.ts', '.tsx'],
+    // },
+    // },
   },
 };
