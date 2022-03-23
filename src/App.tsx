@@ -5,8 +5,6 @@ import { useState } from 'react';
 import TaskForm from './Tasks/TaskForm';
 import { Task } from './interfaces/Task';
 import TaskList from './Tasks/TaskList';
-import Bank from './Bank/Bank';
-// import NavBar from './NavBar/NavBar';
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -25,12 +23,10 @@ const App = () => {
 
   return (
     <div className="bg-dark" style={{ height: '100vh' }}>
-      {/* <NavBar /> */}
       <main className="container p4">
         <TaskList tasks={tasks} deleteTask={deleteTask} updateTask={updateTask} />
         <TaskForm addANewTask={addANewTask} />
       </main>
-      <Bank />
     </div>
   );
 };

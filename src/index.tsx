@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import store from './state/index';
 import Layout from './Layout/Layout';
 import App from './App';
+import Bank from './Bank/Bank';
 
 import 'bootswatch/dist/lumen/bootstrap.min.css';
 
@@ -18,6 +19,7 @@ const Routing = () => (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="tasks" element={<App />} />
+        <Route path="bank" element={<Bank />} />
       </Route>
     </Routes>
   </BrowserRouter>

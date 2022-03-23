@@ -10,8 +10,16 @@ const NavBar = () => (
         Learning TypeScript
       </a>
       <ul>
-        <li><Link to="/tasks" style={{ textDecoration: 'none', color: '#FFF' }}>Tasks List</Link></li>
-        <li>Bank</li>
+        <li>
+          <Link to="/tasks" style={{ textDecoration: 'none', color: '#FFF' }}>
+            Tasks List
+          </Link>
+        </li>
+        <li>
+          <Link to="/bank" style={{ textDecoration: 'none', color: '#FFF' }}>
+            Bank
+          </Link>
+        </li>
         <li>API Rick and Morty</li>
       </ul>
     </div>
