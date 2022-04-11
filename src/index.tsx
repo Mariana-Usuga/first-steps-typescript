@@ -18,7 +18,7 @@ const Routing = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="tasks" element={<App />} />
+        <Route path="" element={<App />} />
         <Route path="bank" element={<Bank />} />
       </Route>
     </Routes>

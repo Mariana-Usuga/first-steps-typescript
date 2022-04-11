@@ -8,11 +8,9 @@ import { Action } from '../../interfaces/Bank';
 const initialState = 0;
 
 const bankReducer = (state: number = initialState, action: Action) => {
-  console.log('action paylos', typeof action.payload);
   switch (action.type) {
     case ActionTypes.DEPOSIT:
       const nose = state + action.payload;
-      console.log('nose ', nose);
       return nose;
     case ActionTypes.WITHDRAW:
       if (state - action.payload < 0) {
